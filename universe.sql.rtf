@@ -1,0 +1,605 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red95\green112\blue168;\red0\green0\blue0;\red215\green215\blue219;
+\red229\green168\blue255;\red139\green255\blue255;\red254\green185\blue125;\red200\green241\blue153;\red255\green255\blue255;
+}
+{\*\expandedcolortbl;;\cssrgb\c44706\c52157\c71765;\csgray\c0\c0;\cssrgb\c87451\c87451\c88627;
+\cssrgb\c92157\c73333\c100000;\cssrgb\c60000\c100000\c100000;\cssrgb\c100000\c77255\c56078;\cssrgb\c81961\c94510\c66275;\cssrgb\c100000\c100000\c100000;
+}
+\margl1440\margr1440\vieww15360\viewh11800\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+--\cf4 \
+\cf2 -- PostgreSQL database dump\cf4 \
+\cf2 --\cf4 \
+\
+\cf2 -- Dumped from database version 12.9 (Ubuntu 12.9-2.pgdg20.04+1)\cf4 \
+\cf2 -- Dumped by pg_dump version 12.9 (Ubuntu 12.9-2.pgdg20.04+1)\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 SET\cf4  statement_timeout \cf6 =\cf4  \cf7 0\cf4 ;\
+\cf5 SET\cf4  \cf5 lock_timeout\cf4  \cf6 =\cf4  \cf7 0\cf4 ;\
+\cf5 SET\cf4  idle_in_transaction_session_timeout \cf6 =\cf4  \cf7 0\cf4 ;\
+\cf5 SET\cf4  client_encoding \cf6 =\cf4  \cf8 'UTF8'\cf4 ;\
+\cf5 SET\cf4  standard_conforming_strings \cf6 =\cf4  \cf5 on\cf4 ;\
+\cf5 SELECT\cf4  \cf9 pg_catalog\cf4 .\cf9 set_config\cf4 (\cf8 'search_path'\cf4 , \cf8 ''\cf4 , false);\
+\cf5 SET\cf4  check_function_bodies \cf6 =\cf4  false;\
+\cf5 SET\cf4  xmloption \cf6 =\cf4  content;\
+\cf5 SET\cf4  client_min_messages \cf6 =\cf4  warning;\
+\cf5 SET\cf4  row_security \cf6 =\cf4  \cf5 off\cf4 ;\
+\
+\cf5 DROP\cf4  \cf5 DATABASE\cf4  universe;\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: universe; Type: DATABASE; Schema: -; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 DATABASE\cf4  universe \cf5 WITH\cf4  TEMPLATE \cf6 =\cf4  template0 \cf5 ENCODING\cf4  \cf6 =\cf4  \cf8 'UTF8'\cf4  LC_COLLATE \cf6 =\cf4  \cf8 'C.UTF-8'\cf4  LC_CTYPE \cf6 =\cf4  \cf8 'C.UTF-8'\cf4 ;\
+\
+\
+\cf5 ALTER\cf4  \cf5 DATABASE\cf4  universe \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\\\cf5 connect\cf4  universe\
+\
+\cf5 SET\cf4  statement_timeout \cf6 =\cf4  \cf7 0\cf4 ;\
+\cf5 SET\cf4  \cf5 lock_timeout\cf4  \cf6 =\cf4  \cf7 0\cf4 ;\
+\cf5 SET\cf4  idle_in_transaction_session_timeout \cf6 =\cf4  \cf7 0\cf4 ;\
+\cf5 SET\cf4  client_encoding \cf6 =\cf4  \cf8 'UTF8'\cf4 ;\
+\cf5 SET\cf4  standard_conforming_strings \cf6 =\cf4  \cf5 on\cf4 ;\
+\cf5 SELECT\cf4  \cf9 pg_catalog\cf4 .\cf9 set_config\cf4 (\cf8 'search_path'\cf4 , \cf8 ''\cf4 , false);\
+\cf5 SET\cf4  check_function_bodies \cf6 =\cf4  false;\
+\cf5 SET\cf4  xmloption \cf6 =\cf4  content;\
+\cf5 SET\cf4  client_min_messages \cf6 =\cf4  warning;\
+\cf5 SET\cf4  row_security \cf6 =\cf4  \cf5 off\cf4 ;\
+\
+\cf5 SET\cf4  default_tablespace \cf6 =\cf4  \cf8 ''\cf4 ;\
+\
+\cf5 SET\cf4  default_table_access_method \cf6 =\cf4  heap;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: galaxy; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4  (\
+    galaxy_id \cf5 integer\cf4  \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    \cf5 name\cf4  \cf5 character\cf4  varying(\cf7 30\cf4 ) \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    survivors_in_millions \cf5 numeric\cf4 (\cf7 4\cf4 ,\cf7 2\cf4 ),\
+    habitable_worlds \cf5 integer\cf4 ,\
+    assigned_hero \cf5 text\cf4 ,\
+    hero_assigned \cf5 boolean\cf4  \cf5 DEFAULT\cf4  true\
+);\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: galaxy_galaxy_name_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 galaxy_galaxy_name_seq\cf4 \
+    \cf5 AS\cf4  \cf5 integer\cf4 \
+    \cf5 START\cf4  \cf5 WITH\cf4  \cf7 1\cf4 \
+    INCREMENT \cf5 BY\cf4  \cf7 1\cf4 \
+    \cf5 NO\cf4  MINVALUE\
+    \cf5 NO\cf4  MAXVALUE\
+    CACHE \cf7 1\cf4 ;\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 galaxy_galaxy_name_seq\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: galaxy_galaxy_name_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 galaxy_galaxy_name_seq\cf4  OWNED \cf5 BY\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4 .galaxy_id;\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: heroes; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 heroes\cf4  (\
+    galaxy_id \cf5 integer\cf4 ,\
+    heroes_id \cf5 integer\cf4  \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    survivors_evacuated \cf5 integer\cf4 ,\
+    \cf5 name\cf4  \cf5 character\cf4  varying(\cf7 20\cf4 ) \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    homeworld \cf5 character\cf4  varying(\cf7 20\cf4 )\
+);\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 heroes\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: heroes_hero_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 heroes_hero_id_seq\cf4 \
+    \cf5 AS\cf4  \cf5 integer\cf4 \
+    \cf5 START\cf4  \cf5 WITH\cf4  \cf7 1\cf4 \
+    INCREMENT \cf5 BY\cf4  \cf7 1\cf4 \
+    \cf5 NO\cf4  MINVALUE\
+    \cf5 NO\cf4  MAXVALUE\
+    CACHE \cf7 1\cf4 ;\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 heroes_hero_id_seq\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: heroes_hero_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 heroes_hero_id_seq\cf4  OWNED \cf5 BY\cf4  \cf9 public\cf4 .\cf9 heroes\cf4 .heroes_id;\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: moon; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 moon\cf4  (\
+    moon_id \cf5 integer\cf4  \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    \cf5 name\cf4  \cf5 character\cf4  varying(\cf7 20\cf4 ) \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    nearest_planet \cf5 character\cf4  varying(\cf7 20\cf4 ),\
+    planet_id \cf5 integer\cf4  \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    survivors_to_relocate \cf5 numeric\cf4 (\cf7 4\cf4 ,\cf7 1\cf4 )\
+);\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: moon_moon_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 moon_moon_id_seq\cf4 \
+    \cf5 AS\cf4  \cf5 integer\cf4 \
+    \cf5 START\cf4  \cf5 WITH\cf4  \cf7 1\cf4 \
+    INCREMENT \cf5 BY\cf4  \cf7 1\cf4 \
+    \cf5 NO\cf4  MINVALUE\
+    \cf5 NO\cf4  MAXVALUE\
+    CACHE \cf7 1\cf4 ;\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 moon_moon_id_seq\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: moon_moon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 moon_moon_id_seq\cf4  OWNED \cf5 BY\cf4  \cf9 public\cf4 .\cf9 moon\cf4 .moon_id;\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: planet; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 planet\cf4  (\
+    planet_id \cf5 integer\cf4  \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    \cf5 name\cf4  \cf5 character\cf4  varying(\cf7 20\cf4 ) \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    nearest_star \cf5 character\cf4  varying(\cf7 20\cf4 ),\
+    star_id \cf5 integer\cf4 ,\
+    survivors_to_relocate \cf5 numeric\cf4 (\cf7 4\cf4 ,\cf7 1\cf4 )\
+);\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: planet_planet_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 planet_planet_id_seq\cf4 \
+    \cf5 AS\cf4  \cf5 integer\cf4 \
+    \cf5 START\cf4  \cf5 WITH\cf4  \cf7 1\cf4 \
+    INCREMENT \cf5 BY\cf4  \cf7 1\cf4 \
+    \cf5 NO\cf4  MINVALUE\
+    \cf5 NO\cf4  MAXVALUE\
+    CACHE \cf7 1\cf4 ;\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 planet_planet_id_seq\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: planet_planet_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 planet_planet_id_seq\cf4  OWNED \cf5 BY\cf4  \cf9 public\cf4 .\cf9 planet\cf4 .planet_id;\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: star; Type: TABLE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 star\cf4  (\
+    galaxy_id \cf5 integer\cf4  \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    star_id \cf5 integer\cf4  \cf5 NOT\cf4  \cf5 NULL\cf4 ,\
+    \cf5 name\cf4  \cf5 character\cf4  varying(\cf7 30\cf4 ),\
+    habitable \cf5 boolean\cf4  \cf5 DEFAULT\cf4  false,\
+    survivors_to_relocate \cf5 numeric\cf4 (\cf7 4\cf4 ,\cf7 1\cf4 )\
+);\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 star\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: star_star_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 CREATE\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 star_star_id_seq\cf4 \
+    \cf5 AS\cf4  \cf5 integer\cf4 \
+    \cf5 START\cf4  \cf5 WITH\cf4  \cf7 1\cf4 \
+    INCREMENT \cf5 BY\cf4  \cf7 1\cf4 \
+    \cf5 NO\cf4  MINVALUE\
+    \cf5 NO\cf4  MAXVALUE\
+    CACHE \cf7 1\cf4 ;\
+\
+\
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  \cf9 public\cf4 .\cf9 star_star_id_seq\cf4  \cf5 OWNER\cf4  \cf5 TO\cf4  freecodecamp;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: star_star_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 SEQUENCE\cf4  \cf9 public\cf4 .\cf9 star_star_id_seq\cf4  OWNED \cf5 BY\cf4  \cf9 public\cf4 .\cf9 star\cf4 .star_id;\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: galaxy galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 galaxy\cf4  \cf5 ALTER\cf4  COLUMN galaxy_id \cf5 SET\cf4  \cf5 DEFAULT\cf4  nextval(\cf8 'public.galaxy_galaxy_name_seq'\cf4 ::regclass);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: heroes heroes_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 heroes\cf4  \cf5 ALTER\cf4  COLUMN heroes_id \cf5 SET\cf4  \cf5 DEFAULT\cf4  nextval(\cf8 'public.heroes_hero_id_seq'\cf4 ::regclass);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: moon moon_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 moon\cf4  \cf5 ALTER\cf4  COLUMN moon_id \cf5 SET\cf4  \cf5 DEFAULT\cf4  nextval(\cf8 'public.moon_moon_id_seq'\cf4 ::regclass);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: planet planet_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 planet\cf4  \cf5 ALTER\cf4  COLUMN planet_id \cf5 SET\cf4  \cf5 DEFAULT\cf4  nextval(\cf8 'public.planet_planet_id_seq'\cf4 ::regclass);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: star star_id; Type: DEFAULT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 star\cf4  \cf5 ALTER\cf4  COLUMN star_id \cf5 SET\cf4  \cf5 DEFAULT\cf4  nextval(\cf8 'public.star_star_id_seq'\cf4 ::regclass);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4  \cf5 VALUES\cf4  (\cf7 1\cf4 , \cf8 'Shiar Galaxy'\cf4 , \cf7 42\cf4 .\cf7 70\cf4 , \cf7 23\cf4 , \cf8 'Klrt'\cf4 , true);\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4  \cf5 VALUES\cf4  (\cf7 2\cf4 , \cf8 'Milky Way'\cf4 , \cf7 18\cf4 .\cf7 20\cf4 , \cf7 9\cf4 , \cf8 'Nova'\cf4 , true);\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4  \cf5 VALUES\cf4  (\cf7 3\cf4 , \cf8 'Andromeda Galaxy'\cf4 , \cf7 98\cf4 .\cf7 30\cf4 , \cf7 15\cf4 , \cf8 'Ronan'\cf4 , true);\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4  \cf5 VALUES\cf4  (\cf7 4\cf4 , \cf8 'Fornax'\cf4 , \cf7 82\cf4 .\cf7 70\cf4 , \cf7 38\cf4 , \cf8 'Terax'\cf4 , true);\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4  \cf5 VALUES\cf4  (\cf7 5\cf4 , \cf8 'Burning Galaxy'\cf4 , \cf7 92\cf4 .\cf7 50\cf4 , \cf7 27\cf4 , \cf8 'Gamora'\cf4 , true);\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4  \cf5 VALUES\cf4  (\cf7 6\cf4 , \cf8 'Spiral Path'\cf4 , \cf7 40\cf4 .\cf7 80\cf4 , \cf7 7\cf4 , \cf8 'Starlord'\cf4 , true);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Data for Name: heroes; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 heroes\cf4  \cf5 VALUES\cf4  (\cf7 1\cf4 , \cf7 1\cf4 , \cf7 25000\cf4 , \cf8 'Klrt'\cf4 , \cf8 'Skrull Homeworld'\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 heroes\cf4  \cf5 VALUES\cf4  (\cf7 2\cf4 , \cf7 2\cf4 , \cf7 30000\cf4 , \cf8 'Nova'\cf4 , \cf8 'Xandar'\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 heroes\cf4  \cf5 VALUES\cf4  (\cf7 3\cf4 , \cf7 3\cf4 , \cf7 15000\cf4 , \cf8 'Ronan'\cf4 , \cf8 'Hala'\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 heroes\cf4  \cf5 VALUES\cf4  (\cf7 4\cf4 , \cf7 4\cf4 , \cf7 42000\cf4 , \cf8 'Terax'\cf4 , \cf8 'Korbin'\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 heroes\cf4  \cf5 VALUES\cf4  (\cf7 5\cf4 , \cf7 5\cf4 , \cf7 60000\cf4 , \cf8 'Gamora'\cf4 , \cf8 'Zeb-Whoberi'\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 heroes\cf4  \cf5 VALUES\cf4  (\cf7 6\cf4 , \cf7 6\cf4 , \cf7 55000\cf4 , \cf8 'Starlord'\cf4 , \cf8 'Terra'\cf4 );\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 1\cf4 , \cf8 'Titan'\cf4 , \cf8 'Terra'\cf4 , \cf7 1\cf4 , \cf7 2\cf4 .\cf7 2\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 2\cf4 , \cf8 'Attilan'\cf4 , \cf8 'Terra'\cf4 , \cf7 1\cf4 , \cf7 4\cf4 .\cf7 1\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 3\cf4 , \cf8 'Luna'\cf4 , \cf8 'Xandar'\cf4 , \cf7 2\cf4 , \cf7 7\cf4 .\cf7 6\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 4\cf4 , \cf8 'Battleworld'\cf4 , \cf8 'Sakaar'\cf4 , \cf7 3\cf4 , \cf7 2\cf4 .\cf7 5\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 5\cf4 , \cf8 'Chandilar'\cf4 , \cf8 'Hala'\cf4 , \cf7 4\cf4 , \cf7 9\cf4 .\cf7 7\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 10\cf4 , \cf8 'Acanti'\cf4 , \cf8 'Korbin'\cf4 , \cf7 5\cf4 , \cf7 8\cf4 .\cf7 9\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 11\cf4 , \cf8 'Moord'\cf4 , \cf8 'Skrull Homeworld'\cf4 , \cf7 6\cf4 , \cf7 7\cf4 .\cf7 2\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 12\cf4 , \cf8 'Tarnax'\cf4 , \cf8 'Ego'\cf4 , \cf7 7\cf4 , \cf7 6\cf4 .\cf7 1\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 13\cf4 , \cf8 'Kvch'\cf4 , \cf8 'Morag'\cf4 , \cf7 8\cf4 , \cf7 5\cf4 .\cf7 0\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 14\cf4 , \cf8 'Knowhere'\cf4 , \cf8 'Muspelheim'\cf4 , \cf7 9\cf4 , \cf7 4\cf4 .\cf7 9\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 15\cf4 , \cf8 'Berhert'\cf4 , \cf8 'Ego'\cf4 , \cf7 7\cf4 , \cf7 3\cf4 .\cf7 8\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 16\cf4 , \cf8 'Badoon Worlds'\cf4 , \cf8 'Asgard'\cf4 , \cf7 10\cf4 , \cf7 2\cf4 .\cf7 7\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 18\cf4 , \cf8 'Vormir'\cf4 , \cf8 'Counter-Earth'\cf4 , \cf7 11\cf4 , \cf7 1\cf4 .\cf7 6\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 19\cf4 , \cf8 'Olympia'\cf4 , \cf8 'Contraxia'\cf4 , \cf7 12\cf4 , \cf7 2\cf4 .\cf7 5\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 20\cf4 , \cf8 'Halfworld'\cf4 , \cf8 'Zen-Whoberi'\cf4 , \cf7 13\cf4 , \cf7 3\cf4 .\cf7 4\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 21\cf4 , \cf8 'Jotunheim'\cf4 , \cf8 'Asgard'\cf4 , \cf7 10\cf4 , \cf7 4\cf4 .\cf7 3\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 22\cf4 , \cf8 'Torfa'\cf4 , \cf8 'Terra'\cf4 , \cf7 1\cf4 , \cf7 5\cf4 .\cf7 2\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 23\cf4 , \cf8 'Soverign'\cf4 , \cf8 'Xandar'\cf4 , \cf7 2\cf4 , \cf7 6\cf4 .\cf7 1\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 24\cf4 , \cf8 'Canopus'\cf4 , \cf8 'Terra'\cf4 , \cf7 1\cf4 , \cf7 7\cf4 .\cf7 2\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 moon\cf4  \cf5 VALUES\cf4  (\cf7 25\cf4 , \cf8 'Arcturus'\cf4 , \cf8 'Terra'\cf4 , \cf7 1\cf4 , \cf7 8\cf4 .\cf7 3\cf4 );\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 1\cf4 , \cf8 'Terra'\cf4 , \cf8 'Alpha Centauri'\cf4 , \cf7 1\cf4 , \cf7 10\cf4 .\cf7 1\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 2\cf4 , \cf8 'Xandar'\cf4 , \cf8 'Rigel'\cf4 , \cf7 2\cf4 , \cf7 5\cf4 .\cf7 7\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 3\cf4 , \cf8 'Sakaar'\cf4 , \cf8 'Nidavelir'\cf4 , \cf7 3\cf4 , \cf7 4\cf4 .\cf7 8\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 4\cf4 , \cf8 'Hala'\cf4 , \cf8 'Sirius'\cf4 , \cf7 4\cf4 , \cf7 8\cf4 .\cf7 8\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 5\cf4 , \cf8 'Korbin'\cf4 , \cf8 'Vega'\cf4 , \cf7 5\cf4 , \cf7 9\cf4 .\cf7 3\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 6\cf4 , \cf8 'Skrull Homeworld'\cf4 , \cf8 'Altair'\cf4 , \cf7 6\cf4 , \cf7 2\cf4 .\cf7 7\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 7\cf4 , \cf8 'Ego'\cf4 , \cf8 'Capella B'\cf4 , \cf7 7\cf4 , \cf7 18\cf4 .\cf7 4\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 8\cf4 , \cf8 'Morag'\cf4 , \cf8 'Rigel'\cf4 , \cf7 2\cf4 , \cf7 12\cf4 .\cf7 1\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 9\cf4 , \cf8 'Muspelheim'\cf4 , \cf8 'Nidavelir'\cf4 , \cf7 3\cf4 , \cf7 22\cf4 .\cf7 9\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 10\cf4 , \cf8 'Asgard'\cf4 , \cf8 'Nidavelir'\cf4 , \cf7 3\cf4 , \cf7 3\cf4 .\cf7 4\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 11\cf4 , \cf8 'Counter-Earth'\cf4 , \cf8 'Alpha Centauri'\cf4 , \cf7 1\cf4 , \cf7 10\cf4 .\cf7 2\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 12\cf4 , \cf8 'Contraxia'\cf4 , \cf8 'Sirius'\cf4 , \cf7 4\cf4 , \cf7 8\cf4 .\cf7 7\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 planet\cf4  \cf5 VALUES\cf4  (\cf7 13\cf4 , \cf8 'Zen-Whoberi'\cf4 , \cf8 'Altair'\cf4 , \cf7 6\cf4 , \cf7 3\cf4 .\cf7 0\cf4 );\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 star\cf4  \cf5 VALUES\cf4  (\cf7 2\cf4 , \cf7 1\cf4 , \cf8 'Alpha Centauri'\cf4 , true, \cf7 8\cf4 .\cf7 3\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 star\cf4  \cf5 VALUES\cf4  (\cf7 1\cf4 , \cf7 2\cf4 , \cf8 'Rigel'\cf4 , false, \cf7 0\cf4 .\cf7 0\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 star\cf4  \cf5 VALUES\cf4  (\cf7 4\cf4 , \cf7 3\cf4 , \cf8 'Nidavelir'\cf4 , true, \cf7 1\cf4 .\cf7 2\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 star\cf4  \cf5 VALUES\cf4  (\cf7 3\cf4 , \cf7 4\cf4 , \cf8 'Sirius'\cf4 , true, \cf7 18\cf4 .\cf7 3\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 star\cf4  \cf5 VALUES\cf4  (\cf7 5\cf4 , \cf7 5\cf4 , \cf8 'Vega'\cf4 , true, \cf7 12\cf4 .\cf7 5\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 star\cf4  \cf5 VALUES\cf4  (\cf7 6\cf4 , \cf7 6\cf4 , \cf8 'Altair'\cf4 , true, \cf7 8\cf4 .\cf7 7\cf4 );\
+\cf5 INSERT\cf4  \cf5 INTO\cf4  \cf9 public\cf4 .\cf9 star\cf4  \cf5 VALUES\cf4  (\cf7 4\cf4 , \cf7 7\cf4 , \cf8 'Capella B'\cf4 , true, \cf7 7\cf4 .\cf7 4\cf4 );\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: galaxy_galaxy_name_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 SELECT\cf4  \cf9 pg_catalog\cf4 .\cf9 setval\cf4 (\cf8 'public.galaxy_galaxy_name_seq'\cf4 , \cf7 7\cf4 , true);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: heroes_hero_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 SELECT\cf4  \cf9 pg_catalog\cf4 .\cf9 setval\cf4 (\cf8 'public.heroes_hero_id_seq'\cf4 , \cf7 6\cf4 , true);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 SELECT\cf4  \cf9 pg_catalog\cf4 .\cf9 setval\cf4 (\cf8 'public.moon_moon_id_seq'\cf4 , \cf7 25\cf4 , true);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 SELECT\cf4  \cf9 pg_catalog\cf4 .\cf9 setval\cf4 (\cf8 'public.planet_planet_id_seq'\cf4 , \cf7 13\cf4 , true);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 SELECT\cf4  \cf9 pg_catalog\cf4 .\cf9 setval\cf4 (\cf8 'public.star_star_id_seq'\cf4 , \cf7 7\cf4 , true);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: galaxy galaxy_assigned_hero_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 galaxy\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  galaxy_assigned_hero_key \cf5 UNIQUE\cf4  (assigned_hero);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: galaxy galaxy_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 galaxy\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  galaxy_pkey \cf5 PRIMARY\cf4  \cf5 KEY\cf4  (galaxy_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: heroes heroes_homeworld_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 heroes\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  heroes_homeworld_key \cf5 UNIQUE\cf4  (homeworld);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: heroes heroes_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 heroes\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  heroes_pkey \cf5 PRIMARY\cf4  \cf5 KEY\cf4  (heroes_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: moon moon_moon_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 moon\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  moon_moon_id_key \cf5 UNIQUE\cf4  (moon_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: moon moon_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 moon\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  moon_pkey \cf5 PRIMARY\cf4  \cf5 KEY\cf4  (moon_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: star name; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 star\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  \cf5 name\cf4  \cf5 UNIQUE\cf4  (\cf5 name\cf4 );\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: planet pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 planet\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  pkey \cf5 PRIMARY\cf4  \cf5 KEY\cf4  (planet_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: planet planet_planet_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 planet\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  planet_planet_id_key \cf5 UNIQUE\cf4  (planet_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: star star_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 star\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  star_pkey \cf5 PRIMARY\cf4  \cf5 KEY\cf4  (star_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: planet fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 planet\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  fkey \cf5 FOREIGN KEY\cf4  (star_id) \cf5 REFERENCES\cf4  \cf9 public\cf4 .\cf9 star\cf4 (star_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: heroes galaxy; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 heroes\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  galaxy \cf5 FOREIGN KEY\cf4  (galaxy_id) \cf5 REFERENCES\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4 (galaxy_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: star galaxy_id; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 star\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  galaxy_id \cf5 FOREIGN KEY\cf4  (galaxy_id) \cf5 REFERENCES\cf4  \cf9 public\cf4 .\cf9 galaxy\cf4 (galaxy_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- Name: moon moon_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp\cf4 \
+\cf2 --\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 ALTER\cf4  \cf5 TABLE\cf4  ONLY \cf9 public\cf4 .\cf9 moon\cf4 \
+    \cf5 ADD\cf4  \cf5 CONSTRAINT\cf4  moon_planet_id_fkey \cf5 FOREIGN KEY\cf4  (planet_id) \cf5 REFERENCES\cf4  \cf9 public\cf4 .\cf9 planet\cf4 (planet_id);\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 --\cf4 \
+\cf2 -- PostgreSQL database dump complete\cf4 \
+\cf2 --\cf4 \
+\
+}
